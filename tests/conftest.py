@@ -16,4 +16,4 @@ def second_product():
 
 @pytest.fixture
 def for_category():
-    return Category(name="Телевизоры", description="Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником", products=["телевизор 1", "телевизор 2"])
+    return Category(name="Телевизоры", description="Современный телевизор", products=["телевизор 1", "телевизор 2"])
