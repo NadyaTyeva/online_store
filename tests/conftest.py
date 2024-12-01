@@ -21,3 +21,11 @@ def for_category():
 @pytest.fixture
 def for_category_tablets():
     return Category(name="Планшеты", description="Современные планшеты", products=["планшет 1", "планшет 2", "планшет 3"])
+
+@pytest.fixture
+def new_product():
+    return Product.new_product("Samsung Galaxy C23 Ultra",
+        "256GB, Серый цвет, 200MP камера",
+        180000.0,
+        5
+    )
