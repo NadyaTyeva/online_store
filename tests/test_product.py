@@ -15,7 +15,7 @@ def test_second_product(second_product):
     assert second_product.quantity == 8
 
 def test_product_category_property(first_product):
-    first_product.price == 180000.0
+    assert first_product.price == 180000.0
 
 
 def test_product_price_setter(first_product):

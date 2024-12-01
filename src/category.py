@@ -19,16 +19,22 @@ class Category:
         Category.product_count += len(products)  # Увеличиваем счетчик товаров на количество добавленных товаров
 
 
-    def add_product(self, products: Product):
-        self.__products.append(products)
-        Category.product_count += 1
-
     @property
     def products(self) -> str:
         product_str = ""
         for product in self.__products:
             product_str += f"{product.name}, цена {product.price} руб, Остаток: {product.quantity} шт \n"
         return product_str
+
+
+    def add_product(self, products: Product):
+        if isinstance(products, Product):
+            self.__products.append(products.name)
+            Category.product_count += 1
+        else:
+            raise TypeError
+
+
 
 
 if __name__ == "__main__":
