@@ -1,4 +1,3 @@
-from numpy.ma.core import product
 from src.product import Product
 
 class Category:
@@ -21,12 +20,20 @@ class Category:
 
 
     def add_product(self, products: Product):
-        self.__products.append(product)
+        self.__products.append(products)
         Category.product_count += 1
 
     @property
     def products(self) -> str:
         product_str = ""
         for product in self.__products:
-            product_str += f"{product}, цена {product.price} руб, Остаток: {product.quantity} шт \n"
+            product_str += f"{product.name}, цена {product.price} руб, Остаток: {product.quantity} шт \n"
         return product_str
+
+
+if __name__ == "__main__":
+    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+    product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+
+    print(category.products)
