@@ -1,3 +1,4 @@
+from src.product import Product
 
 
 def test_product(first_product):
@@ -12,3 +13,20 @@ def test_second_product(second_product):
     assert second_product.description == "512GB, Gray space"
     assert second_product.price == 210000.0
     assert second_product.quantity == 8
+
+def test_product_category_property(first_product):
+    assert first_product.price == 180000.0
+
+
+def test_product_price_setter(first_product):
+    new_price = 200000
+    assert new_price == 200000
+
+def test_product_price_setter_zero(first_product):
+    new_price = 0
+    assert "Цена не должна быть нулевая или отрицательная"
+
+
+def test_product_price_setter_negative(first_product):
+    new_price = -10
+    assert "Цена не должна быть нулевая или отрицательная"
