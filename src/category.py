@@ -2,7 +2,7 @@ from src.product import Product
 
 
 class Category:
-    """Информация о котегориях"""
+    """Информация о категориях"""
 
     category_count = 0  # Счетчик категорий
     product_count = 0  # Счетчик товаров
@@ -14,21 +14,34 @@ class Category:
     def __init__(self, name: str, description: str, products: list):
         self.name = name
         self.description = description
-        self.__products = products
+        self.__products = products if products else []
 
-        Category.category_count += 1  # Увеличиваем счетчик категорий
-        Category.product_count += len(products)  # Увеличиваем счетчик товаров на количество добавленных товаров
+        Category.category_count += 1
+        Category.product_count += len(products) if products else 0
+
+    def __str__(self):
+        """Метод отображающий строку в заданном формате"""
+        total_quatity = 0
+        for product in self.__products:
+            total_quatity += product.quantity
+        return f'{self.name}, количество продуктов: {total_quatity} шт.'
 
     @property
-    def products(self) -> str:
+    def products(self):
+        """Отображение продукта в заданном формате"""
         product_str = ""
         for product in self.__products:
             product_str += f"{product.name}, цена {product.price} руб, Остаток: {product.quantity} шт \n"
         return product_str
 
-    def add_product(self, products: Product):
-        if isinstance(products, Product):
-            self.__products.append(products.name)
+    def add_product(self, product: dict):
+        """Метод добавления нового продукта в список"""
+        if isinstance(product, Product):
+            self.__products.append(product)
             Category.product_count += 1
         else:
             raise TypeError
+
+    @property
+    def products_in_list(self):
+        return self.__products
