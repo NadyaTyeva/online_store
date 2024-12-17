@@ -1,5 +1,5 @@
 import pytest
-from src.product import Product, LawnGrass, Smartphone
+from src.product import Product
 
 
 def test_product(first_product):
@@ -76,9 +76,16 @@ def test_smartphone_2(smartphone2):
     assert smartphone2.color == "Gray space"
 
 
-def test_add_grass():
-    grass1 = LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
-    grass2 = LawnGrass("Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый")
+def test_add_smartphone(smartphone1, smartphone2):
+    assert smartphone1 + smartphone2 == 2580000.0
+
+
+def test_add_smartphone_error(smartphone1):
+    with pytest.raises(TypeError):
+        smartphone1 + 1
+
+
+def test_add_grass(grass1, grass2):
     grass_sum = grass1 + grass2
     assert grass_sum == 16750.0
 
@@ -88,19 +95,11 @@ def test_add_grass_error(grass1):
         grass1 + 1
 
 
-def test_lawngrass(grass2):
-    assert grass2.name == "Газонная трава"
-    assert grass2.description == "Элитная трава для газона"
-    assert grass2.price == 500.0
-    assert grass2.quantity == 20
-    assert grass2.country == "Россия"
-    assert grass2.germination_period == "7 дней"
-    assert grass2.color == "Зеленый"
-
-
-
-
-
-
-
-
+def test_lawng_rass(grass2):
+    assert grass2.name == "Газонная трава 2"
+    assert grass2.description == "Выносливая трава"
+    assert grass2.price == 450.0
+    assert grass2.quantity == 15
+    assert grass2.country == "США"
+    assert grass2.germination_period == "5 дней"
+    assert grass2.color == "Темно-зеленый"
