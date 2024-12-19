@@ -14,10 +14,10 @@ class Product:
         self.quantity = quantity
 
     def __str__(self):
-        return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.'
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
-        if type(self) == type(other):
+        if isinstance(other, type(self)):
             return self.__price * self.quantity + other.__price * other.quantity
         else:
             raise TypeError

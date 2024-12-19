@@ -10,7 +10,8 @@ def test_category_init(for_category):
 
 def test_category_products_property(data_for_counters_categories):
     assert data_for_counters_categories.products == (
-        'Iphone 15, цена 210000.0 руб, Остаток: 8 шт \n' 'Xiaomi Redmi Note 11, цена 31000.0 руб, Остаток: 14 шт \n')
+        "Iphone 15, цена 210000.0 руб, Остаток: 8 шт \n" "Xiaomi Redmi Note 11, цена 31000.0 руб, Остаток: 14 шт \n"
+    )
 
 
 def test_add_product(data_for_categories, new_product, data_for_err):
@@ -22,4 +23,4 @@ def test_add_product(data_for_categories, new_product, data_for_err):
 
 
 def test_category_str(data_for_counters_categories):
-    assert str(data_for_counters_categories) == 'Смартфоны, количество продуктов: 22 шт.'
+    assert str(data_for_counters_categories) == "Смартфоны, количество продуктов: 22 шт."

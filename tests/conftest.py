@@ -1,7 +1,7 @@
 import pytest
 
 from src.category import Category
-from src.product import Product, Smartphone, LawnGrass
+from src.product import LawnGrass, Product, Smartphone
 
 
 @pytest.fixture
@@ -30,23 +30,26 @@ def for_category():
 
 @pytest.fixture
 def for_category_tablets():
-    return Category(name="Планшеты", description="Современные планшеты",
-                    products=["планшет 1", "планшет 2", "планшет 3"])
+    return Category(
+        name="Планшеты", description="Современные планшеты", products=["планшет 1", "планшет 2", "планшет 3"]
+    )
 
 
 @pytest.fixture
 def new_product():
-    return Product.new_product({
-        "name": "Samsung Galaxy C23 Ultra",
-        "description": "256GB, Серый цвет, 200MP камера",
-        "price": 180000.0,
-        "quantity": 5,
-    })
+    return Product.new_product(
+        {
+            "name": "Samsung Galaxy C23 Ultra",
+            "description": "256GB, Серый цвет, 200MP камера",
+            "price": 180000.0,
+            "quantity": 5,
+        }
+    )
 
 
 @pytest.fixture
 def data_for_err():
-    """Для проверки возбуждения ошибки при добавлении нового токара в список """
+    """Для проверки возбуждения ошибки при добавлении нового токара в список"""
     return "Новый продукт"
 
 
@@ -70,8 +73,7 @@ def data_for_counters_categories():
 @pytest.fixture
 def smartphone1():
     return Smartphone(
-        "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5,
-        "S23 Ultra", 256, "Серый"
+        "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5, "S23 Ultra", 256, "Серый"
     )
 
 
