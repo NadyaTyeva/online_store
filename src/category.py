@@ -24,7 +24,7 @@ class Category:
         total_quatity = 0
         for product in self.__products:
             total_quatity += product.quantity
-        return f'{self.name}, количество продуктов: {total_quatity} шт.'
+        return f"{self.name}, количество продуктов: {total_quatity} шт."
 
     @property
     def products(self):
