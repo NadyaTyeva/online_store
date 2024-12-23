@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class PrintMixin:
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         print(repr(self))
 
     def __repr__(self):
@@ -10,10 +10,11 @@ class PrintMixin:
 
 
 class BaseProduct(ABC):
+    """Абстрактный родительский класс"""
 
     @classmethod
     @abstractmethod
-    def __init__(self):
+    def new_product(cls, *args, **kwargs):
         pass
 
 
