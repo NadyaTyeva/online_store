@@ -28,13 +28,11 @@ class Product(BaseProduct, PrintMixin):
 
     def __init__(self, name, description, price, quantity):
 
-
         self.name = name
         self.description = description
         self.__price = price
         self.quantity = quantity
         super().__init__()
-
 
     def __str__(self):
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
@@ -83,8 +81,3 @@ class LawnGrass(Product):
         self.country = country
         self.germination_period = germination_period
         self.color = color
-
-
-
-
-
