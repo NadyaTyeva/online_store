@@ -110,3 +110,8 @@ def test_print_mixin(capsys):
     Product("55 QLED 4K", "Фоновая подсветка", 123000.0, 7)
     message = capsys.readouterr()
     assert message.out.strip() == "Product('55 QLED 4K', 'Фоновая подсветка', 123000.0, 7)"
+
+
+def test_middle_price(data_for_counters_categories, category_empty):
+    assert data_for_counters_categories.middle_price() == 11
+    assert category_empty.middle_price() == 0
